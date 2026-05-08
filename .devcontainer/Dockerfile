@@ -3,8 +3,8 @@ FROM mcr.microsoft.com/devcontainers/go:2-1.26-trixie
 # [Optional] Uncomment this section to install additional OS packages.
 # RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 #     && apt-get -y install --no-install-recommends <your-package-list-here>
-apt update -y
-apt install postgresql-client -y
+RUN apt update -y
+RUN apt install postgresql-client -y
 # [Optional] Uncomment the next lines to use go get to install anything else you need
 # USER vscode
 # RUN go get -x <your-dependency-or-tool>
