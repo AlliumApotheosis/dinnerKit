@@ -17,3 +17,9 @@ func GetDBConnection() (*pgx.Conn, error) {
 
 	return conn, nil
 }
+
+func GetDinnerKitTables(conn *pgx.Conn) ([]string, error) {
+	rows, err := conn.Query(context.Background(), "SELECT table_name FROM information_schema.tables WHERE table_schema = 'public' AND table_type = 'BASE TABLE';")
+	tables, err := pgx.CollectRows(rows, pgx.RowTo[string])
+	return tables, err
+}

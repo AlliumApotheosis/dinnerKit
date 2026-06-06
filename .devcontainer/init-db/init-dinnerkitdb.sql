@@ -10,6 +10,7 @@ CREATE TABLE ingredients (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     quantity INTEGER,
+    optional BOOLEAN DEFAULT false,
     recipe_id INTEGER REFERENCES recipes(id) ON DELETE CASCADE
 );
 CREATE TABLE foods (
